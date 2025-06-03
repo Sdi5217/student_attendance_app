@@ -35,7 +35,8 @@ elif choice == "เช็คชื่อ":
 elif choice == "สถิติการเช็คชื่อ":
     st.subheader("📊 สถิติการเช็คชื่อ")
     stats = get_attendance_stats()
-    st.dataframe(stats)
+    df_stats = pd.DataFrame(stats, columns=["ชื่อ", "ชั้น", "จำนวนครั้งที่มาเรียน"])
+    st.dataframe(df_stats)
     if st.button("📤 ส่งออก Excel"):
         export_excel(stats)
         st.success("✅ ส่งออก Excel สำเร็จ")
